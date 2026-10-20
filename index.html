@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INSCIENCE — Головна</title>
+<meta name="description" content="INSCIENCE — громадська організація, що популяризує науку та доказову медицину в Україні.">
+<link rel="icon" type="image/svg+xml" href="assets/fa036c5b9e28ff37bc64567651b46a05.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/9aae97838a11aaaa9444892951c568ee.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/b138e1c1d257cfda868ce98d771daaf4.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/9cfd135ab11976a6adb9956a0cbc5c34.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Recht';src:url(assets/556807e026e8ea2140a1a68c78c5d5d4.woff2) format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:'Recht';src:url(assets/0ae415ea36c5967c9ba484c11287963e.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Recht';src:url(assets/8f644c1608dbc874d29f879078587f76.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Recht';src:url(assets/0547a087c3d2101586106b4984786c0f.woff2) format('woff2');font-weight:700;font-display:swap}
+body{margin:0;background:#F2F2F2}
+a{color:#000000}a:hover{color:#054FF0}
+.nav-links{display:flex}
+.menu-btn{display:none}
+.dir-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width: 860px){.dir-grid{grid-template-columns:minmax(0,1fr)}}
+.hdr{display:flex;align-items:center;gap:32px}
+@media (max-width: 1200px){.nav-links{display:none}.menu-btn{display:inline-flex}}
+@media (max-width: 640px){.hdr-cta{display:none !important}.hdr{gap:12px}.hdr-logo{height:26px !important}}
+@media (min-width: 1201px){.mm{display:none !important}}
+@keyframes mmIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+@keyframes mmSub{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mm-sub{animation:mmSub .3s ease}
+.mm-row,.mm-sub a{transition:color .2s ease}
+.mm-row:hover,.mm-sub a:hover{color:#BDC71E !important}
+.mm-chev{transition:transform .25s ease}
+.mm-close{transition:background-color .2s ease,color .2s ease}
+.mm-close:hover{background:#FFFFFF !important;color:#054FF0 !important}
+.nav-a,.more,.row-link,.lang-a,.f-link,.f-en{transition:color .2s ease}
+.nav-a{position:relative}
+.nav-a::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:right center;transition:transform .4s cubic-bezier(.65,0,.35,1)}
+.nav-a:hover{color:#054FF0 !important}
+.nav-a:hover::after{transform:scaleX(1);transform-origin:left center}
+.btn-fill,.btn-dark,.btn-ol-dark,.btn-ol-light,.btn-ok,.menu-btn{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+.btn-fill:hover{background:#000000 !important;color:#FFFFFF !important}
+.btn-dark:hover{background:#054FF0 !important;color:#FFFFFF !important}
+.btn-ol-dark:hover{background:#000000 !important;color:#FFFFFF !important;border-color:#000000 !important}
+.btn-ol-light:hover{background:#FFFFFF !important;color:#000000 !important;border-color:#FFFFFF !important}
+.btn-ok:hover{background:#FFFFFF !important}
+.menu-btn:hover{background:#FFFFFF !important}
+.btn-fill:active,.btn-dark:active,.btn-ol-dark:active,.btn-ol-light:active{transform:scale(.97)}
+.more:hover{color:#054FF0 !important}
+.more svg,.row-link svg{transition:transform .25s ease}
+.more:hover svg,.row-link:hover svg{transform:translateX(6px)}
+.card-proj,.card-lift{outline:1px solid transparent;outline-offset:-1px;transition:outline-color .2s ease}
+.card-dir>img,.card-proj img[aria-hidden],.card-lift>img{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.card-proj:hover,.card-lift:hover{outline-color:#6B6B6B}
+.tag-l,.tag-d{transition:background-color .2s ease,color .2s ease}
+.tag-l:hover{background:#FFFFFF !important;color:#000000 !important}
+.tag-d:hover{background:#000000 !important;color:#FFFFFF !important}
+.card-proj:hover img[aria-hidden]{transform:rotate(-14deg) scale(1.1)}
+.card-lift:hover>img{transform:rotate(12deg) scale(1.08)}
+.card-news img.mask-flower{transition:transform .5s ease}
+.card-news:hover img.mask-flower{transform:scale(1.04) rotate(-3deg)}
+.card-news h3{transition:color .2s ease}
+.card-news:hover h3{color:#054FF0}
+.card-proj h3,.card-lift h3{transition:color .2s ease}
+.card-proj:hover h3,.card-lift:hover h3{color:#054FF0}
+.row-link:hover{color:#054FF0 !important}
+.lang-a:hover{color:#000000 !important;text-decoration:underline !important;text-underline-offset:5px}
+.f-link:hover,.f-link2:hover{text-decoration:underline !important;text-underline-offset:4px}
+.f-en:hover{color:#FFFFFF !important}
+#nl::placeholder{color:#FFFFFF;opacity:.8}
+.dd-menu{opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .25s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s linear .3s;z-index:60}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .25s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.dd-chev{transition:transform .25s ease}
+.dd:hover .dd-chev,.dd:focus-within .dd-chev{transform:rotate(180deg)}
+.dd-item{transition:background-color .2s ease,color .2s ease}
+.dd-item:hover,.dd-item:focus-visible{background:#F2F2F2 !important;color:#054FF0 !important}
+.mask-clover{-webkit-mask:url(assets/69230629b53a0b019489df4b85ced625.svg) center/contain no-repeat;mask:url(assets/69230629b53a0b019489df4b85ced625.svg) center/contain no-repeat}
+.mask-flower{-webkit-mask:url(assets/0efffb19aa4d8d48f3d38aa7ab59b746.svg) center/contain no-repeat;mask:url(assets/0efffb19aa4d8d48f3d38aa7ab59b746.svg) center/contain no-repeat}
+.mask-flask{-webkit-mask:url(assets/92d8a2220271cbdce39b53ff510f03a7.svg) center/contain no-repeat;mask:url(assets/92d8a2220271cbdce39b53ff510f03a7.svg) center/contain no-repeat}
+.f-ot:hover{opacity:1 !important}
+.f-bot{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px 24px}.f-bot-mid{justify-content:center}.f-bot-end{justify-self:end}
+@media (max-width: 760px){.f-bot{grid-template-columns:minmax(0,1fr)}.f-bot-mid{justify-content:flex-start}.f-bot-end{justify-self:start}}
+</style>
+<style>.dc-if{display:contents}.dc-if[hidden]{display:none}body{margin:0}</style>
+</head>
+<body>
+<div style="font-family: 'Recht', 'Onest', system-ui, sans-serif; color: #000000; background: #F2F2F2; font-size: 18px; line-height: 1.5; overflow-x: clip">
+
+<!-- HEADER -->
+<header id="site-hdr" style="background: #FFFFFF; position: sticky; top: 0; z-index: 50; border-bottom: 1px solid transparent; transform: translateY(0); transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .2s ease">
+<div class="hdr" style="max-width: 1360px; margin: 0 auto; padding: 22px 24px">
+<a href="#" aria-label="INSCIENCE — на головну" style="display: inline-flex; min-height: 44px; align-items: center"><img class="hdr-logo" src="assets/f3903ad1e2b4bbc808b0533f2b0cdb0d.svg" alt="INSCIENCE" style="height: 30px; width: auto; display: block"></a>
+<nav class="nav-links" aria-label="Головне меню" style="gap: 28px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; flex: 1; justify-content: center; white-space: nowrap">
+<div class="dd" style="position: relative; display: inline-flex"><a href="#" class="nav-a" aria-haspopup="true" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px">Про нас<svg class="dd-chev" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5L5 7l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><div class="dd-menu" style="position: absolute; top: 100%; left: -16px; padding-top: 16px"><div role="menu" aria-label="Про нас" style="background: #FFFFFF; border: 1px solid #E2E2E2; border-radius: 20px; padding: 8px; min-width: 260px; display: flex; flex-direction: column"><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Місія, візія, цінності</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Історія організації</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Наш вплив</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Команда</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Дорадча та наглядова рада</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Ми у медіа</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Співпраця</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Контакти</a></div></div></div>
+<a href="#" class="nav-a" style="text-decoration: none">Проєкти</a>
+<a href="#" class="nav-a" style="text-decoration: none">Дослідження</a>
+<div class="dd" style="position: relative; display: inline-flex"><a href="#" class="nav-a" aria-haspopup="true" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px">Звітність<svg class="dd-chev" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5L5 7l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><div class="dd-menu" style="position: absolute; top: 100%; left: -16px; padding-top: 16px"><div role="menu" aria-label="Звітність" style="background: #FFFFFF; border: 1px solid #E2E2E2; border-radius: 20px; padding: 8px; min-width: 260px; display: flex; flex-direction: column"><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Річні звіти</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Фінансові звіти</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Результати діяльності</a><a href="#" role="menuitem" class="dd-item" style="display: block; padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #000000; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; white-space: nowrap">Політики організації</a></div></div></div>
+<a href="#" class="nav-a" style="text-decoration: none">Новини</a>
+</nav>
+<div class="hdr-right" style="display: flex; align-items: center; gap: 10px; margin-left: auto">
+<div role="group" aria-label="Мова сайту" class="hdr-lang" style="display: inline-flex; align-items: center; gap: 2px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em">
+<span aria-current="true" style="background: #000000; color: #FFFFFF; border-radius: 999px; padding: 0 12px; height: 36px; display: inline-flex; align-items: center">UA</span>
+<a href="#" lang="en" class="lang-a" style="color: #6B6B6B; text-decoration: none; padding: 0 12px; min-height: 44px; display: inline-flex; align-items: center">EN</a>
+</div>
+<a href="#" class="btn-fill hdr-cta" style="background: #054FF0; color: #FFFFFF; font-weight: 500; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 13px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px"><svg width="14" height="14" viewBox="0 0 100 100" aria-hidden="true"><path fill="#FC80ED" d="M50 92 L12 54 C-4 38 4 10 28 10 C40 10 47 18 50 24 C53 18 60 10 72 10 C96 10 104 38 88 54 Z"></path></svg>Підтримати</a>
+<button class="menu-btn" aria-label="Відкрити меню" aria-expanded="false" data-exp="menuOpen" data-act="openMenu" style="width: 44px; height: 44px; border: 1px solid #000000; border-radius: 999px; background: transparent; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14" stroke="#000000" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
+</div>
+</div>
+</header>
+
+<!-- HERO -->
+<section style="background: #054FF0; color: #FFFFFF">
+<div style="max-width: 1360px; margin: 0 auto; padding: 56px 24px 72px; display: flex; flex-wrap: wrap; gap: 40px; align-items: stretch">
+<div style="flex: 1.15 1 540px; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 36px">
+<h1 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: clamp(52px, 8.4vw, 132px); line-height: 0.88; letter-spacing: -0.035em">Робимо <svg viewBox="0 0 100 100" aria-hidden="true" style="width: 0.62em; height: 0.62em; vertical-align: 0.04em"><path fill="#FC80ED" d="M50 0 C55 30 70 45 100 50 C70 55 55 70 50 100 C45 70 30 55 0 50 C30 45 45 30 50 0Z"></path></svg><br>науку<br>видимою.</h1>
+<div style="display: flex; flex-direction: column; gap: 28px; max-width: 600px">
+<p style="margin: 0; font-size: 20px; line-height: 1.45">Популяризуємо науку і доказову медицину та підвищуємо їхню цінність для суспільства, бізнесу та держави. Робимо українських вчених і лікарів видимими.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap">
+<a href="#" class="btn-fill" style="background: #BDC71E; color: #000000; font-weight: 500; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 18px 30px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Підтримати</a>
+<a href="#" class="btn-ol-light" style="border: 1.5px solid #FFFFFF; color: #FFFFFF; font-weight: 500; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 18px 30px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Наші проєкти</a>
+</div>
+</div>
+</div>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; align-items: center; justify-content: flex-start">
+<div style="position: relative; width: 122%; max-width: 820px; flex: none; aspect-ratio: 515 / 565; margin: -48px -14% -72px 0">
+<img src="assets/f2e12c310c27d85c86a91971eed54048.svg" alt="" aria-hidden="true" style="position: absolute; left: 27%; top: 8%; width: 61%; will-change: transform; transform: translate3d(0,0,0)" data-px="0.05">
+<img src="assets/c1bc9e31d0e39299cbf6691923415340.svg" alt="" aria-hidden="true" style="position: absolute; left: 5%; top: 0; width: 31%; will-change: transform; transform: translate3d(0,0,0)" data-px="0.14">
+<img src="assets/2cff3671010ac522c5dc7d0d50f8b52d.svg" alt="" aria-hidden="true" style="position: absolute; left: 48.5%; top: 48.5%; width: 51.5%; will-change: transform; transform: translate3d(0,0,0)" data-px="0.09">
+<img src="assets/63c4b88337de5c6ff89562a80871cbb1.svg" alt="" aria-hidden="true" style="position: absolute; left: 5%; top: 64.5%; width: 42%; will-change: transform; transform: translate3d(0,0,0)" data-px="0.03">
+<img class="mask-clover" src="assets/4eeb5a2a4bc0f5f5ea320f7d01454b2b.jpg" alt="Науковиця в лабораторії" style="position: absolute; left: 7%; top: 21%; width: 66%; aspect-ratio: 1; object-fit: cover; object-position: 30% 30%; will-change: transform; transform: translate3d(0,0,0)" data-px="0.0">
+<img src="assets/097109b0cb5ea6d470bba199a732de12.svg" alt="" aria-hidden="true" style="position: absolute; left: 84%; top: 30%; width: 16%; will-change: transform; transform: translate3d(0,0,0)" data-px="0.2">
+<svg viewBox="0 0 100 50" aria-hidden="true" style="position: absolute; left: 0; top: 54%; width: 10%; will-change: transform; transform: translate3d(0,0,0)" data-px="0.17"><circle cx="20" cy="25" r="18" fill="#8303DC"></circle><circle cx="80" cy="25" r="18" fill="#8303DC"></circle><path d="M20 15 Q50 25 80 15 L80 35 Q50 25 20 35 Z" fill="#8303DC"></path></svg>
+</div>
+</div>
+</div>
+</section>
+
+<!-- IMPACT -->
+<section aria-labelledby="impact-h" style="max-width: 1360px; margin: 0 auto; padding: 104px 24px 40px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<h2 id="impact-h" style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: clamp(40px, 6vw, 88px); line-height: 0.9; letter-spacing: -0.03em">Від ідеї<br>до впливу.</h2>
+<a href="#" class="more" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; display: inline-flex; gap: 10px; align-items: center; min-height: 44px">Більше про наш вплив <svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden="true"><path d="M0 6h26M21 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 40px; min-height: 290px; box-sizing: border-box">
+<img src="assets/f8e8783f67bec8eeba4f83f38a5b91ba.svg" alt="" aria-hidden="true" style="width: 72px; height: 72px">
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px"><div style="font-weight: 700; font-size: 72px; line-height: 0.9; letter-spacing: -0.03em">684</div><div style="font-size: 16px; line-height: 1.4; color: #4A4A4A; min-height: 4.2em">науково-популярні<br>події для дітей<br>Science Kids</div></div>
+</div>
+<div style="background: #FFFFFF; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 40px; min-height: 290px; box-sizing: border-box">
+<img src="assets/873bea6a318a6419da34b2caa27adbab.svg" alt="" aria-hidden="true" style="width: 72px; height: 72px">
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px"><div style="font-weight: 700; font-size: 72px; line-height: 0.9; letter-spacing: -0.03em">3 000</div><div style="font-size: 16px; line-height: 1.4; color: #4A4A4A; min-height: 4.2em">дітей долучилися<br>до лекцій<br>Science Kids</div></div>
+</div>
+<div style="background: #FFFFFF; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 40px; min-height: 290px; box-sizing: border-box">
+<img src="assets/5e36836def7acbb0b8ecdee151025ca4.svg" alt="" aria-hidden="true" style="width: 72px; height: 72px">
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px"><div style="font-weight: 700; font-size: 72px; line-height: 0.9; letter-spacing: -0.03em">2 820</div><div style="font-size: 16px; line-height: 1.4; color: #4A4A4A; min-height: 4.2em">підлітків познайомилися<br>з професіями в науці<br>Science Teens</div></div>
+</div>
+<div style="background: #FFFFFF; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 40px; min-height: 290px; box-sizing: border-box">
+<img src="assets/91ef5d34c5b7ed2ae43a3ed9b1a98a2e.svg" alt="" aria-hidden="true" style="width: 72px; height: 72px">
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px"><div style="font-weight: 700; font-size: 72px; line-height: 0.9; letter-spacing: -0.03em">5</div><div style="font-size: 16px; line-height: 1.4; color: #4A4A4A; min-height: 4.2em">міст з офлайн-осередками:<br>Харків, Одеса, Миколаїв,<br>Херсон, Запоріжжя</div></div>
+</div>
+</div>
+<p style="margin: 0; color: #4A4A4A; font-size: 14px">Дані з 2022 року.</p>
+</section>
+
+<!-- DIRECTIONS -->
+<section aria-labelledby="dir-h" style="max-width: 1360px; margin: 0 auto; padding: 80px 24px 40px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<h2 id="dir-h" style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: clamp(40px, 6vw, 88px); line-height: 0.9; letter-spacing: -0.03em">Одна місія.<br>Чотири напрями.</h2>
+<div aria-hidden="true" style="display: flex; gap: 10px"><img src="assets/63c4b88337de5c6ff89562a80871cbb1.svg" alt="" style="width: 72px"><img src="assets/f2e12c310c27d85c86a91971eed54048.svg" alt="" style="width: 72px"><img src="assets/14ee84099f3e4b05a928b5d93d0e51a2.svg" alt="" style="width: 72px"><img src="assets/81a2f350fd779e2a50a6275e5d78599b.svg" alt="" style="width: 72px"></div>
+</div>
+</div>
+<div class="dir-grid" style="display: grid; gap: 16px">
+<div class="card-dir" style="text-decoration: none; background: #054FF0; color: #FFFFFF; border-radius: 40px; padding: 40px; display: flex; flex-direction: column; gap: 20px; min-height: 400px; box-sizing: border-box; position: relative; overflow: hidden">
+<img src="assets/520d823ada5e7e9c65c4fd93a9470e3f.svg" alt="" aria-hidden="true" style="position: absolute; right: -36px; top: -36px; width: 220px">
+<h3 style="margin: auto 0 0; font-weight: 500; text-transform: uppercase; font-size: 36px; line-height: 0.95; letter-spacing: -0.02em; max-width: 420px">Популяризація науки для дітей і дорослих</h3>
+<p style="margin: 0; font-size: 16px; max-width: 460px">Формуємо покоління дітей, які пізнають світ через науку, і науковий спосіб мислення в суспільстві.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 500"><a href="#" rel="noopener" class="tag-l" style="border: 1px solid #FFFFFF; color: #FFFFFF; text-decoration: none; padding: 8px 14px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; position: relative">Science Kids<span aria-hidden="true">↗</span><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">(окремий сайт)</span></a><a href="#" class="tag-l" style="border: 1px solid #FFFFFF; color: #FFFFFF; text-decoration: none; padding: 8px 14px; border-radius: 999px">Science Teens</a><a href="#" class="tag-l" style="border: 1px solid #FFFFFF; color: #FFFFFF; text-decoration: none; padding: 8px 14px; border-radius: 999px">STEAM-курс</a><a href="#" rel="noopener" class="tag-l" style="border: 1px solid #FFFFFF; color: #FFFFFF; text-decoration: none; padding: 8px 14px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; position: relative">Conference<span aria-hidden="true">↗</span><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">(окремий сайт)</span></a></div>
+</div>
+<div class="card-dir" style="text-decoration: none; background: #8303DC; color: #FFFFFF; border-radius: 40px; padding: 40px; display: flex; flex-direction: column; gap: 20px; min-height: 400px; box-sizing: border-box; position: relative; overflow: hidden">
+<img src="assets/e73907bf5d168a3035559eb64b1ae40c.svg" alt="" aria-hidden="true" style="position: absolute; right: -36px; top: -36px; width: 230px">
+<h3 style="margin: auto 0 0; font-weight: 500; text-transform: uppercase; font-size: 36px; line-height: 0.95; letter-spacing: -0.02em; max-width: 420px">Гендерна рівність у STEM</h3>
+<p style="margin: 0; font-size: 16px; max-width: 460px">Робимо науковиць видимими та досліджуємо, як розвивається їхня кар’єра.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 500"><a href="#" class="tag-l" style="border: 1px solid #FFFFFF; color: #FFFFFF; text-decoration: none; padding: 8px 14px; border-radius: 999px">Women Led Science</a><a href="#" class="tag-l" style="border: 1px solid #FFFFFF; color: #FFFFFF; text-decoration: none; padding: 8px 14px; border-radius: 999px">Науковиці</a></div>
+</div>
+<div class="card-dir" style="text-decoration: none; background: #BDC71E; color: #000000; border-radius: 40px; padding: 40px; display: flex; flex-direction: column; gap: 20px; min-height: 400px; box-sizing: border-box; position: relative; overflow: hidden">
+<img src="assets/d6cd2f1ba5deb15d205b18a7ea9452de.svg" alt="" aria-hidden="true" style="position: absolute; right: -30px; top: -36px; width: 220px">
+<h3 style="margin: auto 0 0; font-weight: 500; text-transform: uppercase; font-size: 36px; line-height: 0.95; letter-spacing: -0.02em; max-width: 420px">Співпраця науки та бізнесу</h3>
+<p style="margin: 0; font-size: 16px; max-width: 460px">Поєднуємо науку і бізнес для створення інновацій.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 500"><a href="#" rel="noopener" class="tag-d" style="border: 1px solid #000000; color: #000000; text-decoration: none; padding: 8px 14px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; position: relative">INSCIENCE Business<span aria-hidden="true">↗</span><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">(окремий сайт)</span></a><a href="#" class="tag-d" style="border: 1px solid #000000; color: #000000; text-decoration: none; padding: 8px 14px; border-radius: 999px">INSCIENCE Agency</a></div>
+</div>
+<div class="card-dir" style="text-decoration: none; background: #FC80ED; color: #000000; border-radius: 40px; padding: 40px; display: flex; flex-direction: column; gap: 20px; min-height: 400px; box-sizing: border-box; position: relative; overflow: hidden">
+<img src="assets/c94b3e1285010388335faf329470204a.svg" alt="" aria-hidden="true" style="position: absolute; right: -10px; top: -40px; width: 190px">
+<h3 style="margin: auto 0 0; font-weight: 500; text-transform: uppercase; font-size: 36px; line-height: 0.95; letter-spacing: -0.02em; max-width: 420px">Доказова профілактика здоров’я</h3>
+<p style="margin: 0; font-size: 16px; max-width: 460px">Підвищуємо якість життя українців та українок через доказову інформацію про здоров’я разом із лікарями й лікарками.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 500"><a href="#" rel="noopener" class="tag-d" style="border: 1px solid #000000; color: #000000; text-decoration: none; padding: 8px 14px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; position: relative">Бережи себе<span aria-hidden="true">↗</span><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">(окремий сайт)</span></a><a href="#" class="tag-d" style="border: 1px solid #000000; color: #000000; text-decoration: none; padding: 8px 14px; border-radius: 999px">Осередки здоров’я</a></div>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" aria-labelledby="proj-h" style="max-width: 1360px; margin: 0 auto; padding: 80px 24px 104px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<h2 id="proj-h" style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: clamp(40px, 6vw, 88px); line-height: 0.9; letter-spacing: -0.03em">Наука належить<br>людям.</h2>
+<a href="#" class="more" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; display: inline-flex; gap: 10px; align-items: center; min-height: 44px">Усі проєкти <svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden="true"><path d="M0 6h26M21 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+
+<a href="#" target="_self" rel="noopener" class="card-proj" style="text-decoration: none; color: #000000; background: #FFFFFF; border-radius: 32px; padding: 12px; display: flex; flex-direction: column">
+<div style="height: 230px; border-radius: 24px; background: #021A72; position: relative; overflow: hidden">
+<img src="assets/f91f0389a32852b96405637059426fab.jpg" alt="Science Kids" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+
+<span style="position: absolute; top: 14px; right: 14px; background: #000000; color: #FFFFFF; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px">Окремий сайт ↗</span>
+</div>
+<div style="padding: 20px 14px 14px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase"><span style="width: 10px; height: 10px; border-radius: 50%; background: #054FF0"></span>Популяризація науки</div>
+<h3 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: 26px; line-height: 1; letter-spacing: -0.02em">Science Kids</h3>
+<p style="margin: 0; color: #4A4A4A; font-size: 15px; flex: 1">Науково-популярний лекторій для дітей, де українські вчені розповідають про космос, динозаврів, археологію, фізику, біологію та природні дива.</p>
+<div style="font-size: 14px; font-weight: 700; border-top: 1px solid #E2E2E2; padding-top: 12px">684 події · 3 000 дітей · 11 онлайн-сезонів</div>
+</div>
+</a>
+
+<a href="#" target="_self" rel="noopener" class="card-proj" style="text-decoration: none; color: #000000; background: #FFFFFF; border-radius: 32px; padding: 12px; display: flex; flex-direction: column">
+<div style="height: 230px; border-radius: 24px; background: #4B0F1E; position: relative; overflow: hidden">
+<img src="assets/8dfeb640d4b4d28717be76d583f4deff.jpg" alt="INSCIENCE Conference" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+
+<span style="position: absolute; top: 14px; right: 14px; background: #000000; color: #FFFFFF; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px">Окремий сайт ↗</span>
+</div>
+<div style="padding: 20px 14px 14px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase"><span style="width: 10px; height: 10px; border-radius: 50%; background: #054FF0"></span>Популяризація науки</div>
+<h3 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: 26px; line-height: 1; letter-spacing: -0.02em">INSCIENCE Conference</h3>
+<p style="margin: 0; color: #4A4A4A; font-size: 15px; flex: 1">Найбільша науково-популярна та deep tech конференція в Україні.</p>
+<div style="font-size: 14px; font-weight: 700; border-top: 1px solid #E2E2E2; padding-top: 12px">50+ провідних спікерів</div>
+</div>
+</a>
+
+<a href="#" target="_self" rel="noopener" class="card-proj" style="text-decoration: none; color: #000000; background: #FFFFFF; border-radius: 32px; padding: 12px; display: flex; flex-direction: column">
+<div style="height: 230px; border-radius: 24px; background: #E1E0DE; position: relative; overflow: hidden">
+<img src="assets/8950d24755dfd21899c34601df0fec80.jpg" alt="Науковиці" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+
+
+</div>
+<div style="padding: 20px 14px 14px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase"><span style="width: 10px; height: 10px; border-radius: 50%; background: #8303DC"></span>Гендерна рівність у STEM</div>
+<h3 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: 26px; line-height: 1; letter-spacing: -0.02em">Науковиці</h3>
+<p style="margin: 0; color: #4A4A4A; font-size: 15px; flex: 1">Сприяння гендерній рівності в STEM, підтримка жінок у побудові кар’єри в науці та підвищення їх видимості у суспільстві.</p>
+<div style="font-size: 14px; font-weight: 700; border-top: 1px solid #E2E2E2; padding-top: 12px">6 документальних фільмів · 12 історій науковиць</div>
+</div>
+</a>
+
+<a href="#" target="_self" rel="noopener" class="card-proj" style="text-decoration: none; color: #000000; background: #FFFFFF; border-radius: 32px; padding: 12px; display: flex; flex-direction: column">
+<div style="height: 230px; border-radius: 24px; background: #7D9F84; position: relative; overflow: hidden">
+<img src="assets/c5d0168303c0a0a7f7d44bba28679081.jpg" alt="Медіа «Бережи себе»" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+
+<span style="position: absolute; top: 14px; right: 14px; background: #000000; color: #FFFFFF; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px">Окремий сайт ↗</span>
+</div>
+<div style="padding: 20px 14px 14px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FC80ED"></span>Доказова профілактика</div>
+<h3 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: 26px; line-height: 1; letter-spacing: -0.02em">Медіа «Бережи себе»</h3>
+<p style="margin: 0; color: #4A4A4A; font-size: 15px; flex: 1">Українське медіа доказової інформації про здоров’я.</p>
+<div style="font-size: 14px; font-weight: 700; border-top: 1px solid #E2E2E2; padding-top: 12px">Понад 500 матеріалів</div>
+</div>
+</a>
+
+</div>
+</section>
+
+<!-- NEWS -->
+<section aria-labelledby="news-h" style="background: #FFFFFF">
+<div style="max-width: 1360px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<h2 id="news-h" style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: clamp(40px, 6vw, 88px); line-height: 0.9; letter-spacing: -0.03em">Що нового.</h2>
+<a href="#" class="more" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; display: inline-flex; gap: 10px; align-items: center; min-height: 44px">Усі новини <svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden="true"><path d="M0 6h26M21 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<a href="#" class="card-news card-lift" style="flex: 2 1 460px; min-width: 0; text-decoration: none; color: #000000; background: #F2F2F2; border-radius: 32px; padding: 12px; display: flex; flex-direction: column">
+<div style="height: 380px; border-radius: 24px; background: #054FF0; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center">
+<img src="assets/fc60977883ab1a3d12f36acd201bae7a.svg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1">
+<img class="mask-flower" src="assets/9c580911f78321cea1a5e4239e223282.jpg" alt="Олена Скирта та Анна Орєхова" style="position: relative; height: 92%; aspect-ratio: 1; object-fit: cover; object-position: 50% 30%">
+</div>
+<div style="padding: 24px 16px 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; gap: 12px; align-items: center; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase"><span style="background: #BDC71E; padding: 5px 12px; border-radius: 999px">Новини організації</span><span style="color: #4A4A4A">2 жовтня 2026</span></div>
+<h3 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: 34px; line-height: 1; letter-spacing: -0.02em">Олена Скирта та Анна Орєхова перейшли у наглядову раду INSCIENCE</h3>
+<p style="margin: 0; color: #4A4A4A; font-size: 16px">У 2018 році Анна Орєхова й Олена Скирта заснували INSCIENCE, щоб популяризувати науку та доказову медицину. За ці роки команда виросла до 30 людей і залучила понад 100 вчених — тепер співзасновниці підтримуватимуть організацію як членкині наглядової ради.</p>
+</div>
+</a>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<a href="#" class="card-lift" style="text-decoration: none; color: #000000; background: #F2F2F2; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 14px; flex: 1; position: relative; overflow: hidden">
+<img src="assets/f16f807e0736d48603c48634734dcec5.svg" alt="" aria-hidden="true" style="position: absolute; right: -30px; bottom: -20px; width: 150px">
+<div style="display: flex; gap: 12px; align-items: center; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; position: relative"><span style="background: #FC80ED; padding: 5px 12px; border-radius: 999px">Анонс</span><span style="color: #4A4A4A">7 листопада 2026</span></div>
+<h3 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: 22px; line-height: 1.05; position: relative; max-width: 300px">Для освітян України запускають безплатний курс зі STEAM-освіти та психоемоційної підтримки дітей</h3>
+</a>
+<a href="#" class="card-lift" style="text-decoration: none; color: #000000; background: #F2F2F2; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 14px; flex: 1; position: relative; overflow: hidden">
+<img src="assets/92d8a2220271cbdce39b53ff510f03a7.svg" alt="" aria-hidden="true" style="position: absolute; right: -10px; bottom: -30px; width: 120px">
+<div style="display: flex; gap: 12px; align-items: center; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; position: relative"><span style="background: #054FF0; color: #FFFFFF; padding: 5px 12px; border-radius: 999px">Матеріали з вченими</span><span style="color: #4A4A4A">24 вересня 2026</span></div>
+<h3 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: 22px; line-height: 1.05; position: relative; max-width: 300px">Біологиня Анна Куземко — про сексизм і кар’єру жінок у науці</h3>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- RESEARCH + AGENCY -->
+<section style="max-width: 1360px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 500px; min-width: 0; background: #FFFFFF; border-radius: 40px; padding: 44px; display: flex; flex-direction: column; gap: 24px; box-sizing: border-box">
+<h2 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: 48px; line-height: 0.92; letter-spacing: -0.03em">Дослідження,<br>на які можна<br>спертися.</h2>
+<a href="#" class="row-link" style="text-decoration: none; color: #000000; border-top: 1px solid #000000; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<div style="display: flex; gap: 16px; align-items: center"><img src="assets/91ef5d34c5b7ed2ae43a3ed9b1a98a2e.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px; flex: none"><div style="display: flex; flex-direction: column; gap: 4px"><div style="font-weight: 500; font-size: 20px; text-transform: uppercase; letter-spacing: -0.01em">Кар’єра науковиць у STEM</div><div style="color: #4A4A4A; font-size: 14px">2025</div></div></div>
+<span style="flex: none; background: #000000; color: #FFFFFF; border-radius: 999px; padding: 9px 16px; font-size: 13px; font-weight: 500; letter-spacing: 0.1em">PDF</span>
+</a>
+<a href="#" class="row-link" style="text-decoration: none; color: #000000; border-top: 1px solid #000000; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<div style="display: flex; gap: 16px; align-items: center"><img src="assets/8abe3dffa12949b69669df82eb05a340.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px; flex: none"><div style="display: flex; flex-direction: column; gap: 4px"><div style="font-weight: 500; font-size: 20px; text-transform: uppercase; letter-spacing: -0.01em">Співпраця науки та бізнесу</div><div style="color: #4A4A4A; font-size: 14px">2024</div></div></div>
+<span style="flex: none; background: #000000; color: #FFFFFF; border-radius: 999px; padding: 9px 16px; font-size: 13px; font-weight: 500; letter-spacing: 0.1em">PDF</span>
+</a>
+</div>
+<div style="flex: 1 1 500px; min-width: 0; background: #0D6F3F; color: #FFFFFF; border-radius: 40px; padding: 44px; display: flex; flex-direction: column; gap: 22px; box-sizing: border-box; position: relative; overflow: hidden">
+<img src="assets/21d79a4f974e6983248f68c3abdfe032.svg" alt="" aria-hidden="true" style="position: absolute; right: -50px; bottom: -40px; width: 250px">
+<h2 style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: 48px; line-height: 0.92; letter-spacing: -0.03em; color: #BDC71E">Досвід,<br>заснований<br>на науці.</h2>
+<p style="margin: 0; font-size: 16px; max-width: 440px; position: relative">Проводимо цікаві й пізнавальні події для команд, створюємо освітній контент, розробляємо брендинг та мерч, організуємо наукові дослідження для бізнесу із залученням вчених з України та світу.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; position: relative">
+<a href="#" class="btn-fill" style="background: #BDC71E; color: #000000; font-weight: 500; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 16px 26px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Замовити проєкт</a>
+<a href="#" class="btn-ol-light" style="border: 1.5px solid #FFFFFF; color: #FFFFFF; font-weight: 500; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 16px 26px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Стати партнером</a>
+</div>
+</div>
+</section>
+
+<!-- MEDIA -->
+<section aria-labelledby="media-h" style="max-width: 1360px; margin: 0 auto; padding: 0 24px 96px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<h2 id="media-h" style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: clamp(36px, 4.5vw, 64px); line-height: 0.9; letter-spacing: -0.03em">Ми у медіа.</h2>
+<a href="#" class="more" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; display: inline-flex; gap: 10px; align-items: center; min-height: 44px">Усі згадки <svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden="true"><path d="M0 6h26M21 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+</div>
+<div style="display: flex; flex-direction: column">
+<a href="#" rel="noopener" class="row-link" style="text-decoration: none; color: #000000; border-top: 1px solid #000000; padding: 22px 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap"><span style="flex: 0 0 220px; display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase"><span style="font-size: 14px; font-weight: 700">Forbes Україна</span><span style="color: #4A4A4A">10 жовтня 2026</span></span><span style="flex: 1 1 360px; font-size: 24px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05">Від грантів до чеків. Олена Скирта вісім років популяризувала науку через INSCIENCE</span><svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden="true"><path d="M0 6h26M21 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+<a href="#" rel="noopener" class="row-link" style="text-decoration: none; color: #000000; border-top: 1px solid #000000; padding: 22px 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap"><span style="flex: 0 0 220px; display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase"><span style="font-size: 14px; font-weight: 700">Forbes Україна</span><span style="color: #4A4A4A">13 лютого 2024</span></span><span style="flex: 1 1 360px; font-size: 24px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05">15 лідерок в українській науці: список Forbes, підготовлений разом з INSCIENCE</span><svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden="true"><path d="M0 6h26M21 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+<a href="#" rel="noopener" class="row-link" style="text-decoration: none; color: #000000; border-top: 1px solid #000000; padding: 22px 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap"><span style="flex: 0 0 220px; display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase"><span style="font-size: 14px; font-weight: 700">Мілітарний</span><span style="color: #4A4A4A">31 травня 2023</span></span><span style="flex: 1 1 360px; font-size: 24px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05">Військові можуть безкоштовно відвідати найбільшу науково-популярну конференцію в Україні</span><svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden="true"><path d="M0 6h26M21 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+<a href="#" rel="noopener" class="row-link" style="text-decoration: none; color: #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding: 22px 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap"><span style="flex: 0 0 220px; display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase"><span style="font-size: 14px; font-weight: 700">МОН України</span><span style="color: #4A4A4A">13 січня 2020</span></span><span style="flex: 1 1 360px; font-size: 24px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05">МОН та INSCIENCE підписали меморандум про популяризацію науки серед школярів і студентів</span><svg width="28" height="12" viewBox="0 0 28 12" fill="none" aria-hidden="true"><path d="M0 6h26M21 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"></path></svg></a>
+</div>
+</section>
+
+<!-- PARTNERS -->
+<section aria-labelledby="partners-h" style="max-width: 1360px; margin: 0 auto; padding: 0 24px 104px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap">
+<h2 id="partners-h" style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: clamp(36px, 4.5vw, 64px); line-height: 0.9; letter-spacing: -0.03em">Разом з нами.</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+<div style="height: 120px; border-radius: 24px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box"><img src="assets/868c8c2fb62016756e0f8e17cb779d7e.svg" alt="Help – Hilfe zur Selbsthilfe" style="max-height: 72px; max-width: 100%"></div>
+<div style="height: 120px; border-radius: 24px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box"><img src="assets/a346a584df586d2d7a84f96b159c274f.png" alt="Міжнародний фонд «Відродження»" style="max-height: 56px; max-width: 100%"></div>
+<div style="height: 120px; border-radius: 24px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box"><img src="assets/1c94542614c7e0ffd70a694109d7711c.svg" alt="BMZ — Федеральне міністерство економічного співробітництва та розвитку Німеччини" style="max-height: 60px; max-width: 100%"></div>
+<div style="height: 120px; border-radius: 24px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box"><img src="assets/6aa6ec14ebc455909c2204d9f2db880a.svg" alt="Медична лабораторія Dila" style="max-height: 48px; max-width: 100%"></div>
+<div style="height: 120px; border-radius: 24px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box"><img src="assets/105d95fa8ddca490d3121af317214ead.png" alt="Nova Ukraine" style="max-height: 52px; max-width: 100%"></div>
+<div style="height: 120px; border-radius: 24px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box"><img src="assets/59eff14b3733a34eb71e5022b61d3b1d.png" alt="UN Women" style="max-height: 48px; max-width: 100%"></div>
+</div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support" aria-labelledby="support-h" style="background: #BDC71E; position: relative; overflow: hidden">
+<img src="assets/2cbc87ca9fa1fec1989be8ca6c026262.svg" alt="" aria-hidden="true" style="position: absolute; right: -60px; top: -50px; width: 400px">
+<div style="max-width: 1360px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px; position: relative">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<h2 id="support-h" style="margin: 0; font-weight: 500; text-transform: uppercase; font-size: clamp(48px, 7.5vw, 120px); line-height: 0.88; letter-spacing: -0.035em">Підтримайте<br>науку.</h2>
+<p style="margin: 0; font-size: 20px; max-width: 560px">Ваш внесок допомагає проводити безоплатні лекції для дітей і підлітків у прифронтових містах, зустрічі з лікарями та освітні програми для вчителів.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap">
+<a href="#" class="btn-dark" style="background: #000000; color: #FFFFFF; font-weight: 500; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 18px 30px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Зробити внесок</a>
+<a href="#" class="btn-ol-dark" style="border: 1.5px solid #000000; color: #000000; font-weight: 500; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 18px 30px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Стати партнером проєкту</a>
+</div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; align-self: flex-end; background: #FFFFFF; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 14px; font-size: 15px">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Реквізити ГО «INSCIENCE»</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div><span style="color: #4A4A4A">ЄДРПОУ:</span> [додати]</div>
+<div><span style="color: #4A4A4A">IBAN (UAH):</span> [додати]</div>
+<div><span style="color: #4A4A4A">IBAN (EUR / USD):</span> [додати]</div>
+<div><span style="color: #4A4A4A">Призначення:</span> Благодійний внесок на статутну діяльність</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #054FF0; color: #FFFFFF; overflow: hidden">
+<div style="max-width: 1360px; margin: 0 auto; padding: 80px 24px 48px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 2 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.25">Наука.<br>Люди.<br>Прогрес.<br>Досвід.<br>Разом.</div>
+<form style="display: flex; flex-direction: column; gap: 10px; max-width: 380px">
+<label for="nl" style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Підписатися на новини</label>
+<div style="display: flex; gap: 8px"><input id="nl" type="email" placeholder="Ваш email" style="flex: 1; min-width: 0; height: 48px; border-radius: 999px; border: 1.5px solid #FFFFFF; background: transparent; color: #FFFFFF; padding: 0 18px; font: inherit; font-size: 15px"><button type="button" class="btn-ok" style="height: 48px; border-radius: 999px; border: 0; background: #FC80ED; color: #000000; padding: 0 22px; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer">OK</button></div>
+</form>
+</div>
+<div style="flex: 1 1 170px; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px">Про організацію</div><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Про нас</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Наш вплив</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Команда</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Дорадча та наглядова рада</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Звітність</a></div>
+<div style="flex: 1 1 170px; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px">Діяльність</div><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Напрями роботи</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Проєкти</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Дослідження</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Новини</a></div>
+<div style="flex: 1 1 170px; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px">Можливості</div><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Підтримати</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Партнерство</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">INSCIENCE Agency</a><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none">Вакансії та волонтерство</a></div>
+<div style="flex: 1 1 170px; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px">Контакти</div><a href="#" class="f-link" style="color: #FFFFFF; text-decoration: none; display: inline-flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6.5 8.5-6.5"></path></svg><span>go@inscience.io</span></a><a href="#" rel="noopener" class="f-link" style="color: #FFFFFF; text-decoration: none; display: inline-flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><path fill="currentColor" d="M13.1 17.5v-4.6h1.6l.25-1.85h-1.85V9.9c0-.55.15-.9.95-.9h1V7.35c-.18-.02-.75-.07-1.42-.07-1.4 0-2.37.86-2.37 2.43v1.34H9.65v1.85h1.6v4.6z"></path></svg><span>Facebook</span></a><a href="#" rel="noopener" class="f-link" style="color: #FFFFFF; text-decoration: none; display: inline-flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"></circle></svg><span>Instagram</span></a><a href="#" rel="noopener" class="f-link" style="color: #FFFFFF; text-decoration: none; display: inline-flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><g fill="currentColor"><rect x="7.4" y="10.3" width="1.9" height="6.4"></rect><circle cx="8.35" cy="8.1" r="1.1"></circle><path d="M11.1 10.3h1.8v.9h.03c.27-.5.92-1.05 1.9-1.05 2.02 0 2.4 1.33 2.4 3.06v3.49h-1.88v-3.1c0-.74-.01-1.69-1.03-1.69-1.03 0-1.19.8-1.19 1.63v3.16H11.1z"></path></g></svg><span>LinkedIn</span></a></div>
+</div>
+<img src="assets/5007f86ab4bede158dac9811e7dcc401.svg" alt="INSCIENCE" style="width: 100%; height: auto; display: block">
+<div class="f-bot" style="border-top: 1px solid #FFFFFF; padding-top: 22px; font-size: 13px">
+<div>© ГО «INSCIENCE»</div>
+<div class="f-bot-mid" style="display: flex; gap: 20px; flex-wrap: wrap"><a href="#" class="f-link2" style="color: #FFFFFF">Політика конфіденційності</a><a href="#" class="f-link2" style="color: #FFFFFF">Політики організації</a></div>
+<a href="#" rel="noopener" aria-label="Сайт розроблено в Opentech | SoftServe" class="f-ot f-bot-end" style="display: inline-flex; opacity: 0.85; transition: opacity .2s"><img src="assets/82eaced1aee541a9e9ec7a87d69877b4.svg" alt="Розроблено в Opentech | SoftServe" style="height: 22px; width: auto; display: block"></a>
+</div>
+</div>
+</footer>
+
+</div>
+<div class="dc-if" data-if="menuOpen" hidden>
+<div class="mm" role="dialog" aria-modal="true" aria-label="Меню сайту" style="position: fixed; inset: 0; z-index: 100; background: #054FF0; color: #FFFFFF; display: flex; flex-direction: column; overflow-y: auto; font-family: 'Recht', 'Onest', system-ui, sans-serif">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 22px 24px">
+<img class="hdr-logo" src="assets/5007f86ab4bede158dac9811e7dcc401.svg" alt="INSCIENCE" style="height: 30px; width: auto; display: block">
+<div style="display: flex; align-items: center; gap: 10px"><div role="group" aria-label="Мова сайту" style="display: inline-flex; align-items: center; gap: 2px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em"><span aria-current="true" style="background: #FFFFFF; color: #054FF0; border-radius: 999px; padding: 0 12px; height: 36px; display: inline-flex; align-items: center">UA</span><a href="#" lang="en" style="color: #FFFFFF; text-decoration: none; padding: 0 12px; min-height: 44px; display: inline-flex; align-items: center">EN</a></div>
+<button class="mm-close" aria-label="Закрити меню" data-act="closeMenu" style="width: 44px; height: 44px; border: 1.5px solid #FFFFFF; border-radius: 999px; background: transparent; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button></div>
+</div>
+<nav aria-label="Мобільне меню" style="padding: 12px 24px 0; flex: 1">
+<button class="mm-row" aria-expanded="false" data-exp="aboutOpen" data-act="toggleAbout" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: transparent; border: 0; border-top: 1px solid rgba(255,255,255,0.35); color: #FFFFFF; font: inherit; font-size: 30px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; padding: 20px 0; cursor: pointer; text-align: left; text-decoration: none; box-sizing: border-box">Про нас<svg class="mm-chev" width="22" height="22" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="transform: none" data-chev="about"><path d="M1.5 3.5L5 7l3.5-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<div class="dc-if" data-if="aboutOpen" hidden><div class="mm-sub" style="padding: 0 0 16px"><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Місія, візія, цінності</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Історія організації</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Наш вплив</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Команда</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Дорадча та наглядова рада</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Ми у медіа</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Співпраця</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Контакти</a></div></div>
+<a href="#" class="mm-row" data-act="closeMenu" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: transparent; border: 0; border-top: 1px solid rgba(255,255,255,0.35); color: #FFFFFF; font: inherit; font-size: 30px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; padding: 20px 0; cursor: pointer; text-align: left; text-decoration: none; box-sizing: border-box">Проєкти</a>
+<a href="#" class="mm-row" data-act="closeMenu" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: transparent; border: 0; border-top: 1px solid rgba(255,255,255,0.35); color: #FFFFFF; font: inherit; font-size: 30px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; padding: 20px 0; cursor: pointer; text-align: left; text-decoration: none; box-sizing: border-box">Дослідження</a>
+<button class="mm-row" aria-expanded="false" data-exp="repOpen" data-act="toggleRep" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: transparent; border: 0; border-top: 1px solid rgba(255,255,255,0.35); color: #FFFFFF; font: inherit; font-size: 30px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; padding: 20px 0; cursor: pointer; text-align: left; text-decoration: none; box-sizing: border-box">Звітність<svg class="mm-chev" width="22" height="22" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="transform: none" data-chev="rep"><path d="M1.5 3.5L5 7l3.5-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<div class="dc-if" data-if="repOpen" hidden><div class="mm-sub" style="padding: 0 0 16px"><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Річні звіти</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Фінансові звіти</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Результати діяльності</a><a href="#" data-act="closeMenu" style="display: block; color: #FFFFFF; text-decoration: none; font-size: 18px; padding: 10px 0">Політики організації</a></div></div>
+<a href="#" class="mm-row" data-act="closeMenu" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: transparent; border: 0; border-top: 1px solid rgba(255,255,255,0.35); color: #FFFFFF; font: inherit; font-size: 30px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; padding: 20px 0; cursor: pointer; text-align: left; text-decoration: none; box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.35)">Новини</a>
+</nav>
+<div style="padding: 32px 24px 36px; display: flex; flex-direction: column; gap: 22px">
+<a href="#" class="btn-fill" data-act="closeMenu" style="background: #BDC71E; color: #000000; font-weight: 500; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 18px 28px; border-radius: 999px; display: flex; justify-content: center; align-items: center">Підтримати</a>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; font-size: 15px"><a href="#" style="color: #FFFFFF; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; min-height: 32px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6.5 8.5-6.5"></path></svg><span style="text-decoration: underline; text-underline-offset: 3px">go@inscience.io</span></a><a href="#" rel="noopener" style="color: #FFFFFF; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; min-height: 32px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><path fill="currentColor" d="M13.1 17.5v-4.6h1.6l.25-1.85h-1.85V9.9c0-.55.15-.9.95-.9h1V7.35c-.18-.02-.75-.07-1.42-.07-1.4 0-2.37.86-2.37 2.43v1.34H9.65v1.85h1.6v4.6z"></path></svg><span style="text-decoration: underline; text-underline-offset: 3px">Facebook</span></a><a href="#" rel="noopener" style="color: #FFFFFF; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; min-height: 32px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"></circle></svg><span style="text-decoration: underline; text-underline-offset: 3px">Instagram</span></a><a href="#" rel="noopener" style="color: #FFFFFF; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; min-height: 32px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><g fill="currentColor"><rect x="7.4" y="10.3" width="1.9" height="6.4"></rect><circle cx="8.35" cy="8.1" r="1.1"></circle><path d="M11.1 10.3h1.8v.9h.03c.27-.5.92-1.05 1.9-1.05 2.02 0 2.4 1.33 2.4 3.06v3.49h-1.88v-3.1c0-.74-.01-1.69-1.03-1.69-1.03 0-1.19.8-1.19 1.63v3.16H11.1z"></path></g></svg><span style="text-decoration: underline; text-underline-offset: 3px">LinkedIn</span></a></div>
+</div>
+</div>
+</div>
+<script>
+(function () {
+  var hdr = document.getElementById('site-hdr');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pxEls = Array.prototype.slice.call(document.querySelectorAll('[data-px]'));
+  var state = { menuOpen: false, aboutOpen: false, repOpen: false };
+  var lastY = 0, hidden = false, raf = 0;
+  function onScroll() {
+    if (raf) return;
+    raf = requestAnimationFrame(function () {
+      raf = 0;
+      var y = window.scrollY || document.documentElement.scrollTop || 0;
+      var dy = y - lastY;
+      if (y < 120) hidden = false; else if (dy > 6) hidden = true; else if (dy < -6) hidden = false;
+      if (Math.abs(dy) > 6 || y < 120) lastY = y;
+      hdr.style.transform = (hidden && !state.menuOpen) ? 'translateY(-100%)' : 'translateY(0)';
+      hdr.style.borderBottomColor = y > 8 ? '#E2E2E2' : 'transparent';
+      if (!reduce) {
+        var sy = Math.min(y, 900);
+        pxEls.forEach(function (el) { el.style.transform = 'translate3d(0,' + (-sy * parseFloat(el.dataset.px)).toFixed(1) + 'px,0)'; });
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  function render() {
+    ['menuOpen', 'aboutOpen', 'repOpen'].forEach(function (k) {
+      document.querySelectorAll('[data-if="' + k + '"]').forEach(function (el) { el.hidden = !state[k]; });
+      document.querySelectorAll('[data-exp="' + k + '"]').forEach(function (el) { el.setAttribute('aria-expanded', String(state[k])); });
+    });
+    document.querySelectorAll('[data-chev="about"]').forEach(function (el) { el.style.transform = state.aboutOpen ? 'rotate(180deg)' : 'none'; });
+    document.querySelectorAll('[data-chev="rep"]').forEach(function (el) { el.style.transform = state.repOpen ? 'rotate(180deg)' : 'none'; });
+    document.documentElement.style.overflow = state.menuOpen ? 'hidden' : '';
+  }
+  var acts = {
+    openMenu: function () { state.menuOpen = true; },
+    closeMenu: function () { state.menuOpen = false; state.aboutOpen = false; state.repOpen = false; },
+    toggleAbout: function () { state.aboutOpen = !state.aboutOpen; },
+    toggleRep: function () { state.repOpen = !state.repOpen; }
+  };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href="#"]');
+    if (a) e.preventDefault();
+    var el = e.target.closest('[data-act]');
+    if (!el) return;
+    var fn = acts[el.getAttribute('data-act')];
+    if (fn) { fn(); render(); }
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && state.menuOpen) { acts.closeMenu(); render(); } });
+  document.querySelectorAll('form').forEach(function (f) { f.addEventListener('submit', function (e) { e.preventDefault(); }); });
+  render(); onScroll();
+})();
+</script>
+</body>
+</html>
